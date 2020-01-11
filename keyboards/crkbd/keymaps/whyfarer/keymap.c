@@ -63,6 +63,8 @@ enum macro_keycodes {
 
 // define some custom keys
 #define CK_NAV MO(_NAVIG)
+#define CK_E_NAV LT(_NAVIG, KC_ENT)
+#define CK_T_NAV LT(_NAVIG, KC_TAB)
 
 #define CK_S_NUM LT(_NUMBER,  KC_SPC)
 
@@ -90,10 +92,10 @@ enum macro_keycodes {
               K33, K34, K35, K36, K37, K38 \
   ) \
   LAYOUT_wrapper( \
-    KC_ESC,  K01,    K02,     K03,      K04,     K05,                        K06,     K07,     K08,     K09,     K0A,     KC_BSPC, \
-    KC_TAB,  K11,    K12,     K13,      K14,     K15,                        K16,     K17,     K18,     K19,     K1A,     KC_ENT, \
-    CK_NAV,  K21,    K22,     K23,      K24,     K25,                        K26,     K27,     K28,     K29,     K2A,     CK_NAV, \
-                              K33,      K34,     K35,                        K36,     K37,     K38 \
+    KC_ESC,    K01,    K02,     K03,      K04,     K05,            K06,     K07,     K08,     K09,     K0A,     KC_ESC, \
+    KC_TAB,    K11,    K12,     K13,      K14,     K15,            K16,     K17,     K18,     K19,     K1A,     KC_ENT, \
+    CK_E_NAV,  K21,    K22,     K23,      K24,     K25,            K26,     K27,     K28,     K29,     K2A,     CK_T_NAV, \
+                                K33,      K34,     K35,            K36,     K37,     K38 \
   )
 #define LAYOUT_crkbd_base_wrapper(...)       LAYOUT_crkbd_base(__VA_ARGS__)
 
@@ -103,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _________________COLEMAK_L1________________, _________________COLEMAK_R1________________,
     _________________COLEMAK_L2________________, _________________COLEMAK_R2________________,
     _________________COLEMAK_L3________________, _________________COLEMAK_R3________________,
-                   CK_S_NAV, CK_B_SYM, CK_D_NAV, CK_T_NAV, CK_S_NUM, CK_B_NAV
+                   CK_S_NAV, CK_B_SYM, CK_D_NAV, CK_E_NAV, CK_S_NUM, CK_B_NAV
   ),
 
   [_NUMBER] = LAYOUT_crkbd_base_wrapper(
